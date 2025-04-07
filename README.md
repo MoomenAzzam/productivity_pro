@@ -5,28 +5,20 @@
 ![Image](https://github.com/user-attachments/assets/7d000813-ab77-4801-912e-8748f8132d73)
 
 ## Setup
-
 Make sure to install dependencies:
-
 ```bash
 npm install
 ```
 
 ## Development Server
-
 Start the development server on `http://localhost:3000`:
-
 ```bash
-# npm
 npm run dev
 ```
 
 ## Production
-
 Build the application for production:
-
 ```bash
-# npm
 npm run build
 ```
 
