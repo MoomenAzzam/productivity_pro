@@ -1,8 +1,5 @@
 # Productivity Pro 🚀
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/YOUR-DEPLOY-ID/deploy-status)](https://productivity-pro.netlify.app/)
-[![GitHub License](https://img.shields.io/github/license/MoomenAzzam/productivity_pro)](https://github.com/MoomenAzzam/productivity_pro/blob/master/LICENSE)
-[![npm](https://img.shields.io/npm/v/nuxt)](https://www.npmjs.com/package/nuxt)
 
 ### A modern productivity tool to organize your tasks with intuitive drag-and-drop interface. Boost your efficiency by visualizing workflow across multiple boards.
 
