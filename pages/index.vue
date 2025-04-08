@@ -178,4 +178,21 @@ const toggleTaskVisibility = (taskId: number) => {
     task.isHidden = !task.isHidden;
   }
 };
+
+useHead({
+  title: "Productivity Tool - Task Management Dashboard",
+  meta: [
+    {
+      hid: "keywords",
+      name: "keywords",
+      content:
+        "productivity tool, task management, drag and drop tasks, efficiency booster, workflow organizer",
+    },
+    {
+      hid: "twitter:card",
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+  ],
+});
 </script>
