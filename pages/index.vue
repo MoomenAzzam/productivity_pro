@@ -180,7 +180,6 @@ const toggleTaskVisibility = (taskId: number) => {
 };
 
 useHead({
-  title: "Productivity Tool - Task Management Dashboard",
   meta: [
     {
       hid: "keywords",
