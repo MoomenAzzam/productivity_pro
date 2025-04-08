@@ -71,20 +71,43 @@
                   </div>
                 </div>
 
-                <div class="mt-6 flex justify-end space-x-3">
-                  <button
-                    type="button"
-                    @click="closeModal"
-                    class="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition-colors"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    type="submit"
-                    class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
-                  >
-                    {{ isEdit ? "Update" : "Add" }} Task
-                  </button>
+                <div class="mt-6 flex justify-between">
+                  <div>
+                    <button
+                      v-if="isEdit"
+                      @click="handleDelete"
+                      type="button"
+                      class="px-4 py-2 bg-red-600  rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 transition-colors mr-2"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M6 19C6 20.1 6.9 21 8 21H16C17.1 21 18 20.1 18 19V7H6V19ZM8 9H16V19H8V9ZM15.5 4L14.5 3H9.5L8.5 4H5V6H19V4H15.5Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="flex space-x-3">
+                    <button
+                      type="button"
+                      @click="closeModal"
+                      class="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition-colors"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="submit"
+                      class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+                    >
+                      {{ isEdit ? "Update" : "Add" }} Task
+                    </button>
+                  </div>
                 </div>
               </form>
             </div>
@@ -109,7 +132,7 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(["close", "submit"]);
+const emit = defineEmits(["close", "submit", "delete"]); // Added delete emit
 
 const firstInput = ref<HTMLInputElement | null>(null);
 
@@ -170,43 +193,12 @@ const handleSubmit = () => {
   emit("submit", taskData);
   resetForm();
 };
+
+// Add this new method for handling delete
+const handleDelete = () => {
+  if (props.taskToEdit) {
+    emit("delete", props.taskToEdit.id);
+    closeModal();
+  }
+};
 </script>
-
-<style>
-/* Fade transition for overlay */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-/* Scale transition for modal */
-.scale-enter-active,
-.scale-leave-active {
-  transition: all 0.3s ease;
-}
-
-.scale-enter-from,
-.scale-leave-to {
-  opacity: 0;
-  transform: scale(0.95);
-}
-
-/* Modal transition */
-.modal-enter-active {
-  transition: all 0.3s ease-out;
-}
-
-.modal-leave-active {
-  transition: all 0.2s ease-in;
-}
-
-.modal-enter-from,
-.modal-leave-to {
-  opacity: 0;
-}
-</style>

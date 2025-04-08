@@ -1,7 +1,5 @@
 <template>
   <div
-    draggable="true"
-    @dragstart="onDragStart"
     class="bg-white dark:bg-gray-800 dark:border dark:border-gray-700 rounded-lg shadow p-4 mb-3 cursor-move hover:shadow-md transition-shadow duration-200"
     :class="{
       'opacity-60 bg-gray-100 dark:bg-gray-900 dark:border-gray-800': task.isHidden,
@@ -97,13 +95,6 @@ const props = defineProps({
 });
 
 const emit = defineEmits(["edit", "toggleHide"]);
-
-const onDragStart = (e: DragEvent) => {
-  if (e.dataTransfer) {
-    e.dataTransfer.setData("taskId", props.task.id.toString());
-    e.dataTransfer.effectAllowed = "move";
-  }
-};
 
 const toggleHideTask = () => {
   emit("toggleHide", props.task.id);

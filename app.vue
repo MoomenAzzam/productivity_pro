@@ -53,4 +53,17 @@ provide("toggleDark", toggleDark);
 .min-h-screen {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
+.ghost-task {
+  opacity: 0.5;
+  background: #c8ebfb;
+  border: 2px dashed #4299e1;
+}
+.chosen-task {
+  opacity: 0.8;
+  transform: scale(1.02);
+}
+.dragging-task {
+  transform: rotate(2deg);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
 </style>

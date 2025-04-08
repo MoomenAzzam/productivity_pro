@@ -78,6 +78,7 @@
       :task-to-edit="taskToEdit"
       @close="closeModal"
       @submit="handleTaskSubmit"
+      @delete="handleTaskDelete" 
     />
   </div>
 </template>
@@ -177,6 +178,10 @@ const toggleTaskVisibility = (taskId: number) => {
   if (task) {
     task.isHidden = !task.isHidden;
   }
+};
+
+const handleTaskDelete = (taskId: number) => {
+  tasks.value = tasks.value.filter(task => task.id !== taskId);
 };
 
 useHead({
