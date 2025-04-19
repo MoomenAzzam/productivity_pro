@@ -11,13 +11,15 @@
             <h1
               class="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white"
             >
-              My Task Boards
+              Boost Your Productivity with Task Boards
             </h1>
             <p
               class="text-lg text-gray-500 dark:text-gray-400 leading-relaxed max-w-md"
             >
-              Organize your work, boost productivity, and stay on top of your
-              goals.
+              Productivity Pro helps you organize tasks with intuitive
+              drag-and-drop boards. Our task management system increases
+              efficiency for individuals and teams. Try the ultimate workflow
+              organizer today!
             </p>
           </div>
           <button
@@ -78,7 +80,7 @@
       :task-to-edit="taskToEdit"
       @close="closeModal"
       @submit="handleTaskSubmit"
-      @delete="handleTaskDelete" 
+      @delete="handleTaskDelete"
     />
   </div>
 </template>
@@ -86,7 +88,7 @@
 <script setup lang="ts">
 import type { Task } from "~/types";
 import { onMounted, ref, watch, computed } from "vue";
-
+import SchemaOrg from "~/components/SchemaOrg.vue";
 // Inject dark mode toggle from app.vue
 const toggleDark = inject<() => void>("toggleDark", () => {});
 
@@ -181,7 +183,7 @@ const toggleTaskVisibility = (taskId: number) => {
 };
 
 const handleTaskDelete = (taskId: number) => {
-  tasks.value = tasks.value.filter(task => task.id !== taskId);
+  tasks.value = tasks.value.filter((task) => task.id !== taskId);
 };
 
 useHead({
