@@ -5,11 +5,14 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss", "@vueuse/nuxt"],
   nitro: {
     prerender: {
-      routes: ['/']
-    }
+      routes: ["/"],
+    },
   },
   app: {
     head: {
+      htmlAttrs: {
+        lang: "en",
+      },
       title: "Productivity Pro",
       titleTemplate: "%s - Productivity Pro | Task Management Tool",
       meta: [
